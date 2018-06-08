@@ -5,6 +5,10 @@
  */
 package br.estacio.prii.copa.gui;
 
+import br.estacio.prii.copa.entidade.Usuario;
+import br.estacio.prii.copa.dao.UsuarioDAO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author claud
@@ -184,7 +188,20 @@ public class FrameLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // TODO add your handling code here:
+        if(txtUsuario.getText().equals("") || pssSenha.getPassword().equals("")) {
+            JOptionPane.showMessageDialog(null, "Login ou Senha inválido.", "DADOS INCORRETOS", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Usuario usuarioConsulta = new Usuario();
+            
+            usuarioConsulta.setLogin(txtUsuario.getText());
+            usuarioConsulta.setSenha(new String(pssSenha.getPassword()));
+            
+            UsuarioDAO.autenticar(usuarioConsulta);
+            
+            this.dispose();
+                
+            new FrameMenu().setVisible(true);
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
@@ -192,9 +209,7 @@ public class FrameLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFecharActionPerformed
 
     private void btnNovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoUsuarioActionPerformed
-        
         new FrameUsuarios().setVisible(true);
-       
     }//GEN-LAST:event_btnNovoUsuarioActionPerformed
 
     /**

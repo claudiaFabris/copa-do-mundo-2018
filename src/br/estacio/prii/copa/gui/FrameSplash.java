@@ -52,22 +52,19 @@ public class FrameSplash extends javax.swing.JFrame
 
         lblAluno1.setBackground(new java.awt.Color(255, 255, 255));
         lblAluno1.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
-        lblAluno1.setForeground(new java.awt.Color(102, 204, 255));
         lblAluno1.setText("Claudia Mendes Fabris - 201602272727");
         getContentPane().add(lblAluno1);
-        lblAluno1.setBounds(160, 260, 320, 50);
+        lblAluno1.setBounds(90, 260, 460, 32);
 
         lblAluno2.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
-        lblAluno2.setForeground(new java.awt.Color(0, 0, 102));
         lblAluno2.setText("Dhonata Freitas Holanda - 201602186871");
         getContentPane().add(lblAluno2);
-        lblAluno2.setBounds(160, 300, 320, 30);
+        lblAluno2.setBounds(80, 290, 470, 30);
 
         lblAluno3.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
-        lblAluno3.setForeground(new java.awt.Color(0, 0, 102));
         lblAluno3.setText("Maurício de Souza Porfírio - 201601327681");
         getContentPane().add(lblAluno3);
-        lblAluno3.setBounds(150, 320, 350, 50);
+        lblAluno3.setBounds(70, 320, 490, 30);
 
         lblPorcentagemCarregando.setFont(new java.awt.Font("Agency FB", 1, 30)); // NOI18N
         lblPorcentagemCarregando.setText("0%");
