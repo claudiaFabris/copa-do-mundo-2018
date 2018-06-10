@@ -5,6 +5,10 @@
  */
 package br.estacio.prii.copa.gui;
 
+import br.estacio.prii.copa.dao.UsuarioDAO;
+import br.estacio.prii.copa.entidade.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author claud
@@ -35,7 +39,7 @@ public class FrameUsuarios extends javax.swing.JFrame {
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         lblCelular = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtCelular = new javax.swing.JTextField();
         lblObservacao = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservacao = new javax.swing.JTextArea();
@@ -47,9 +51,9 @@ public class FrameUsuarios extends javax.swing.JFrame {
         lblSenha = new javax.swing.JLabel();
         pssSenha = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         btnLimpar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
+        pssCSenha = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         btnCadastar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -58,7 +62,7 @@ public class FrameUsuarios extends javax.swing.JFrame {
         btnExcluirUsuario = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         pnlPrincipal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -87,7 +91,7 @@ public class FrameUsuarios extends javax.swing.JFrame {
         lblCelular.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
         lblCelular.setText("Celular:");
 
-        jTextField1.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
+        txtCelular.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
 
         lblObservacao.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
         lblObservacao.setText("Observação:");
@@ -107,7 +111,7 @@ public class FrameUsuarios extends javax.swing.JFrame {
                     .addGroup(pnlDadosPessoaisLayout.createSequentialGroup()
                         .addComponent(lblCelular)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1))
+                        .addComponent(txtCelular))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDadosPessoaisLayout.createSequentialGroup()
                         .addComponent(lblObservacao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -136,7 +140,7 @@ public class FrameUsuarios extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCelular)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(pnlDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlDadosPessoaisLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
@@ -183,19 +187,17 @@ public class FrameUsuarios extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
         jLabel2.setText("Confirmar Senha:");
 
-        jTextField2.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
         btnLimpar.setBackground(new java.awt.Color(204, 0, 0));
         btnLimpar.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         btnLimpar.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeLimpar.png"))); // NOI18N
         btnLimpar.setText("Limpar");
         btnLimpar.setPreferredSize(new java.awt.Dimension(75, 30));
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         btnSair.setBackground(new java.awt.Color(204, 0, 0));
         btnSair.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
@@ -203,6 +205,13 @@ public class FrameUsuarios extends javax.swing.JFrame {
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeSair.png"))); // NOI18N
         btnSair.setText("Sair");
         btnSair.setPreferredSize(new java.awt.Dimension(75, 30));
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
+        pssCSenha.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout pnlInformacoesLoginLayout = new javax.swing.GroupLayout(pnlInformacoesLogin);
         pnlInformacoesLogin.setLayout(pnlInformacoesLoginLayout);
@@ -227,7 +236,7 @@ public class FrameUsuarios extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pnlInformacoesLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(pssSenha)
-                                    .addComponent(jTextField2)))))
+                                    .addComponent(pssCSenha)))))
                     .addGroup(pnlInformacoesLoginLayout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,10 +259,10 @@ public class FrameUsuarios extends javax.swing.JFrame {
                     .addComponent(lblSenha)
                     .addComponent(pssSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlInformacoesLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(26, 26, 26)
+                .addGroup(pnlInformacoesLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(pssCSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addGroup(pnlInformacoesLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -267,6 +276,11 @@ public class FrameUsuarios extends javax.swing.JFrame {
         btnCadastar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeCadastrar.png"))); // NOI18N
         btnCadastar.setText("Cadastrar");
         btnCadastar.setBorder(null);
+        btnCadastar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
         btnCancelar.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
@@ -343,7 +357,7 @@ public class FrameUsuarios extends javax.swing.JFrame {
             .addGroup(pnlPrincipalLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
                     .addComponent(lblTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(btnNovoUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -390,13 +404,58 @@ public class FrameUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbAdminstradorActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        txtNome.setText("");
+        txtEmail.setText("");
+        txtCelular.setText("");
+        txtLogin.setText("");
+        txtObservacao.setText("");
+        pssSenha.setText("");
+        pssCSenha.setText("");
+        cbAdminstrador.setSelected(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCadastarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastarActionPerformed
+        String nome = txtNome.getText();
+        String email = txtEmail.getText();
+        String celular = txtCelular.getText();
+        String login = txtLogin.getText();
+        String obs = txtObservacao.getText();
+        String senha = new String(pssSenha.getPassword());
+        String csenha = new String(pssCSenha.getPassword());
+        Boolean admin = cbAdminstrador.isSelected();
+        
+        if( nome.equals("") || email.equals("") || login.equals("") || senha.equals("") || csenha.equals("")) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os dados.", "OS DADOS NÃO FORAM PREENCHIDOS", JOptionPane.ERROR_MESSAGE);
+        } else {
+            if(!senha.equals(csenha)) {
+                JOptionPane.showMessageDialog(null, "As senhas não são compatíveis", "SENHA INCORRETA", JOptionPane.WARNING_MESSAGE);
+            } else {
+                Usuario usuarioSalvar = new Usuario();
+
+                usuarioSalvar.setNome(nome);
+                usuarioSalvar.setCelular(celular);
+                usuarioSalvar.setEmail(email);
+                usuarioSalvar.setLogin(login);
+                usuarioSalvar.setSenha(senha);
+                usuarioSalvar.setObs(obs);
+                usuarioSalvar.setAdmin(admin);
+
+                UsuarioDAO.cadastrar(usuarioSalvar);
+            }
+        } 
+    }//GEN-LAST:event_btnCadastarActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        txtLogin.setText("");
+        pssSenha.setText("");
+        pssCSenha.setText("");
+        cbAdminstrador.setSelected(false);
+    }//GEN-LAST:event_btnLimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -447,8 +506,6 @@ public class FrameUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblCelular;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblLogin;
@@ -459,7 +516,9 @@ public class FrameUsuarios extends javax.swing.JFrame {
     private javax.swing.JPanel pnlDadosPessoais;
     private javax.swing.JPanel pnlInformacoesLogin;
     private javax.swing.JPanel pnlPrincipal;
+    private javax.swing.JPasswordField pssCSenha;
     private javax.swing.JPasswordField pssSenha;
+    private javax.swing.JTextField txtCelular;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtNome;
