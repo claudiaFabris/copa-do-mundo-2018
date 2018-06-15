@@ -104,16 +104,31 @@ public class FrameMenu extends javax.swing.JFrame
         menuCadastro.setBackground(new java.awt.Color(153, 0, 0));
         menuCadastro.setForeground(new java.awt.Color(255, 255, 255));
         menuCadastro.setText("Cadastro de Usuários");
+        menuCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadastroActionPerformed(evt);
+            }
+        });
         menuSistema.add(menuCadastro);
 
         menuLogoff.setBackground(new java.awt.Color(153, 0, 0));
         menuLogoff.setForeground(new java.awt.Color(255, 255, 255));
         menuLogoff.setText("Logoff do Usuário");
+        menuLogoff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuLogoffActionPerformed(evt);
+            }
+        });
         menuSistema.add(menuLogoff);
 
         menuSobre.setBackground(new java.awt.Color(153, 0, 0));
         menuSobre.setForeground(new java.awt.Color(255, 255, 255));
         menuSobre.setText("Sobre o Sistema");
+        menuSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSobreActionPerformed(evt);
+            }
+        });
         menuSistema.add(menuSobre);
 
         menuSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
@@ -157,6 +172,22 @@ public class FrameMenu extends javax.swing.JFrame
     private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_menuSairActionPerformed
+
+    private void menuLogoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLogoffActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuLogoffActionPerformed
+
+    private void menuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSobreActionPerformed
+
+        new FrameSobre().setVisible(true);
+        
+    }//GEN-LAST:event_menuSobreActionPerformed
+
+    private void menuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroActionPerformed
+        
+        new FrameUsuarios().setVisible(true);
+        
+    }//GEN-LAST:event_menuCadastroActionPerformed
 
     public static void main(String args[]) 
     {
