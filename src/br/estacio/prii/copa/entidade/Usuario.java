@@ -8,7 +8,7 @@ public class Usuario
    private String nome;
    private String email;
    private String celular;
-   private Boolean admin;
+   private String admin;
    private String obs;
 
     public Usuario() { }
@@ -16,7 +16,7 @@ public class Usuario
     public Usuario
     (
         String login, String senha, String nome, 
-        String email, String celular, Boolean admin, String obs
+        String email, String celular, String admin, String obs
     ) 
     {
         this.login   = login;
@@ -78,14 +78,19 @@ public class Usuario
         this.celular = celular;
     }
 
-    public boolean isAdmin() 
+    public String getAdmin() 
     {
         return admin;
     }
 
     public void setAdmin(boolean admin) 
     {
-        this.admin = admin;
+        if(admin){
+            this.admin = "1";
+        }else{
+            this.admin = "0";
+        }
+        
     }
 
     public String getObs() 

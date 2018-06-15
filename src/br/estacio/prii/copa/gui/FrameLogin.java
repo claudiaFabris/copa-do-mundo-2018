@@ -183,11 +183,11 @@ public class FrameLogin extends javax.swing.JFrame {
             usuarioConsulta.setLogin(txtUsuario.getText());
             usuarioConsulta.setSenha(new String(pssSenha.getPassword()));
             
-            UsuarioDAO.autenticar(usuarioConsulta);
-            
-            this.dispose();
-                
-            new FrameMenu().setVisible(true);
+            if(UsuarioDAO.autenticar(usuarioConsulta)){
+                this.dispose();
+
+                new FrameMenu().setVisible(true);
+            }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 

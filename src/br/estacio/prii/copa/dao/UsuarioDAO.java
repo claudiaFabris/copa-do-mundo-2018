@@ -13,7 +13,7 @@ public class UsuarioDAO
     private static final Connection connection = ConnectionFactory.getConnection();
  
     
-    public static void cadastrar(Usuario usuarioSalvar) 
+    public static boolean cadastrar(Usuario usuarioSalvar) 
     {
         String sql = "INSERT INTO usuario(nome, celular, login, email, senha, admin, obs) VALUES (?, ?, ?, ?, ?, ?, ?)";
         
@@ -24,17 +24,21 @@ public class UsuarioDAO
             stmt.setString(3, usuarioSalvar.getLogin());
             stmt.setString(4, usuarioSalvar.getEmail());
             stmt.setString(5, usuarioSalvar.getSenha());
-            stmt.setBoolean(6, usuarioSalvar.isAdmin());
+            stmt.setString(6, usuarioSalvar.getAdmin());
             stmt.setString(7, usuarioSalvar.getObs());
             
             stmt.execute();
             stmt.close();
+            
+            return true;
+            
         } catch(SQLException e) {
             e.getMessage();
+            return false;
         }
     }
     
-    public static Usuario autenticar(Usuario usuarioConsulta)
+    public static boolean autenticar(Usuario usuarioConsulta)
     {
         String sql = "SELECT * FROM usuario WHERE login = ? AND senha = ?";
         
@@ -47,13 +51,15 @@ public class UsuarioDAO
             
             if(resultado.next()) {  
                 JOptionPane.showMessageDialog(null, "Login efetuado com sucesso.", "SEJA BEM-VINDO", JOptionPane.QUESTION_MESSAGE);
+                return true;
             } else {
                 JOptionPane.showMessageDialog(null, "Login ou Senha inválido.", "USUÁRIO NÃO ENCONTRADO", JOptionPane.ERROR_MESSAGE);
+                return false;
             }
         } catch(SQLException e) {
             e.getMessage();
         }
         
-        return null;
+        return false;
     }
 }

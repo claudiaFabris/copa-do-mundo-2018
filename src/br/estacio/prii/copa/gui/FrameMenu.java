@@ -1,5 +1,7 @@
 package br.estacio.prii.copa.gui;
 
+import javax.swing.JOptionPane;
+
 
 public class FrameMenu extends javax.swing.JFrame 
 {
@@ -174,7 +176,9 @@ public class FrameMenu extends javax.swing.JFrame
     }//GEN-LAST:event_menuSairActionPerformed
 
     private void menuLogoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLogoffActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Logout efetuado com sucesso.", "Sair", JOptionPane.QUESTION_MESSAGE);
+        new FrameLogin().show();
+        this.dispose();
     }//GEN-LAST:event_menuLogoffActionPerformed
 
     private void menuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSobreActionPerformed
