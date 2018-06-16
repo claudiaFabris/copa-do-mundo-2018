@@ -425,7 +425,13 @@ public class FrameUsuarios extends javax.swing.JFrame {
                 usuarioSalvar.setObs(obs);
                 usuarioSalvar.setAdmin(admin);
 
-                UsuarioDAO.cadastrar(usuarioSalvar);
+                if(UsuarioDAO.cadastrar(usuarioSalvar)){
+                    JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso.", "Cadastro usuario", JOptionPane.QUESTION_MESSAGE);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Houve um erro ao tentar cadastra o usuario \nverifique os dados.", "SENHA INCORRETA", JOptionPane.WARNING_MESSAGE);
+                }
+                
             }
         } 
     }//GEN-LAST:event_btnCadastarActionPerformed
