@@ -1,9 +1,6 @@
 package br.estacio.prii.copa.entidade;
 
-/**
- * Copa2018
- * @author Newton Gomes - 2018.1
- */
+
 public class Selecao 
 {
     private Integer codigo;
@@ -88,5 +85,4 @@ public class Selecao
     {
         this.imagem = imagem;
     }
-    
 }

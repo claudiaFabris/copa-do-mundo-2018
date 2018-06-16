@@ -164,7 +164,7 @@ public class FrameMenu extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuSelecoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSelecoesActionPerformed
-        // TODO add your handling code here:
+        new FrameSelecao().setVisible(true);
     }//GEN-LAST:event_menuSelecoesActionPerformed
 
     private void menuEstadiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEstadiosActionPerformed
