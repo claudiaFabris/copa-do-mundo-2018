@@ -1,5 +1,9 @@
 package br.estacio.prii.copa.gui;
 
+import br.estacio.prii.copa.dao.SelecaoDAO;
+import br.estacio.prii.copa.entidade.Selecao;
+import javax.swing.JOptionPane;
+
 
 public class FrameSelecao extends javax.swing.JFrame {
 
@@ -106,6 +110,11 @@ public class FrameSelecao extends javax.swing.JFrame {
         btnCadastrarSelecao.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrarSelecao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeCadastrar2.png"))); // NOI18N
         btnCadastrarSelecao.setText("Cadastrar");
+        btnCadastrarSelecao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarSelecaoActionPerformed(evt);
+            }
+        });
 
         btnVoltar.setBackground(new java.awt.Color(0, 51, 153));
         btnVoltar.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
@@ -164,7 +173,7 @@ public class FrameSelecao extends javax.swing.JFrame {
             pnlSelecaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSelecaoLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(pnlSelecaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlSelecaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitulo)
                     .addComponent(jLabel1))
                 .addGap(42, 42, 42)
@@ -215,8 +224,38 @@ public class FrameSelecao extends javax.swing.JFrame {
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         dispose();
-        new FrameMenu().setVisible(true);
+        //new FrameMenu().setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnCadastrarSelecaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarSelecaoActionPerformed
+        
+        String nome      = txtNome.getText();
+        String tecnico   = txtTecnico.getText();
+        String grupo     = txtGrupo.getText();
+        String descricao = txtDescricao.getText();
+        
+        if( nome.equals("") || tecnico.equals("") || grupo.equals("") || descricao.equals("")) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os dados!", "OS DADOS NÃO FORAM PREENCHIDOS", JOptionPane.ERROR_MESSAGE);
+        } else {
+            
+            Selecao selecaoSalvar = new Selecao();
+            
+            selecaoSalvar.setNome(nome);
+            selecaoSalvar.setTecnico(tecnico);
+            selecaoSalvar.setGrupo(grupo);
+            selecaoSalvar.setDescricao(descricao);
+            
+            if(SelecaoDAO.cadastrar(selecaoSalvar)){
+                JOptionPane.showMessageDialog(null, "Seleção cadastrada com sucesso.", "Cadastro seleção", JOptionPane.QUESTION_MESSAGE);
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Houve um erro ao tentar cadastra a seleção \nVerifique os dados.", "SENHA INCORRETA", JOptionPane.WARNING_MESSAGE);
+            }
+            
+            
+        }
+        
+    }//GEN-LAST:event_btnCadastrarSelecaoActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
