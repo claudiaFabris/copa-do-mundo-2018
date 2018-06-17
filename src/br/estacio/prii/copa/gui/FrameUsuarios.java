@@ -429,7 +429,7 @@ public class FrameUsuarios extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso.", "Cadastro usuario", JOptionPane.QUESTION_MESSAGE);
                     this.dispose();
                 }else{
-                    JOptionPane.showMessageDialog(null, "Houve um erro ao tentar cadastra o usuario \nverifique os dados.", "SENHA INCORRETA", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Houve um erro ao tentar cadastra o usuario \nVerifique os dados.", "SENHA INCORRETA", JOptionPane.WARNING_MESSAGE);
                 }
                 
             }
