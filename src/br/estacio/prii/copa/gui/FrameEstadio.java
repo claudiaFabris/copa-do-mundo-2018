@@ -5,6 +5,10 @@
  */
 package br.estacio.prii.copa.gui;
 
+import br.estacio.prii.copa.dao.EstadioDAO;
+import br.estacio.prii.copa.entidade.Estadio;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author claud
@@ -72,12 +76,22 @@ public class FrameEstadio extends javax.swing.JFrame {
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeCadastrar2.png"))); // NOI18N
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         btnVoltar.setBackground(new java.awt.Color(0, 102, 153));
         btnVoltar.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeVoltar.png"))); // NOI18N
         btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeEstadio.png"))); // NOI18N
 
@@ -117,7 +131,7 @@ public class FrameEstadio extends javax.swing.JFrame {
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPrincipalLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitulo)
                     .addComponent(jLabel1))
                 .addGap(61, 61, 61)
@@ -157,6 +171,38 @@ public class FrameEstadio extends javax.swing.JFrame {
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        
+        String nome          = txtNome.getText();
+        String cidade        = txtCidade.getText();
+        
+        if( nome.equals("") || cidade.equals("") || txtCapacidade.equals("")) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os dados!", "OS DADOS NÃO FORAM PREENCHIDOS", JOptionPane.ERROR_MESSAGE);
+        } else {
+            
+            Integer capacidade = Integer.parseInt(txtCapacidade.getText());
+            
+            Estadio estadioSalvar = new Estadio();
+            
+            estadioSalvar.setNome(nome);
+            estadioSalvar.setCidade(cidade);
+            estadioSalvar.setCapacidade(capacidade);
+            
+            if(EstadioDAO.cadastrar(estadioSalvar)){
+                JOptionPane.showMessageDialog(null, "Estádio cadastrado com sucesso.", "Cadastro estádio", JOptionPane.QUESTION_MESSAGE);
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Houve um erro ao tentar cadastra o estádio \nVerifique os dados.", "Erro cadastro", JOptionPane.WARNING_MESSAGE);
+            }
+            
+        }
+        
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
