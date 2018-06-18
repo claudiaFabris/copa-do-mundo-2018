@@ -15,7 +15,7 @@ public class FrameMenu extends javax.swing.JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        lblImagemCentro = new javax.swing.JLabel();
         menuPrincipal = new javax.swing.JMenuBar();
         menuCadastros = new javax.swing.JMenu();
         menuSelecoes = new javax.swing.JMenuItem();
@@ -36,7 +36,7 @@ public class FrameMenu extends javax.swing.JFrame
         setTitle("Projeto Copa 2018");
         setResizable(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/imagemPrincipal.jpeg"))); // NOI18N
+        lblImagemCentro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/imagemPrincipal.jpeg"))); // NOI18N
 
         menuPrincipal.setBackground(new java.awt.Color(153, 0, 0));
         menuPrincipal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -152,11 +152,11 @@ public class FrameMenu extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblImagemCentro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblImagemCentro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -168,7 +168,7 @@ public class FrameMenu extends javax.swing.JFrame
     }//GEN-LAST:event_menuSelecoesActionPerformed
 
     private void menuEstadiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEstadiosActionPerformed
-        // TODO add your handling code here:
+       new FrameEstadio().setVisible(true);
     }//GEN-LAST:event_menuEstadiosActionPerformed
 
     private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
@@ -176,21 +176,19 @@ public class FrameMenu extends javax.swing.JFrame
     }//GEN-LAST:event_menuSairActionPerformed
 
     private void menuLogoffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLogoffActionPerformed
-        JOptionPane.showMessageDialog(null, "Logout efetuado com sucesso.", "Sair", JOptionPane.QUESTION_MESSAGE);
-        new FrameLogin().show();
+        JOptionPane.showMessageDialog(null, "Logoff efetuado com sucesso!", 
+                                     "Saindo...", JOptionPane.QUESTION_MESSAGE
+        );
+        new FrameLogin().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuLogoffActionPerformed
 
     private void menuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSobreActionPerformed
-
-        new FrameSobre().setVisible(true);
-        
+        new FrameSobre().setVisible(true);     
     }//GEN-LAST:event_menuSobreActionPerformed
 
     private void menuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroActionPerformed
-        
         new FrameUsuarios().setVisible(true);
-        
     }//GEN-LAST:event_menuCadastroActionPerformed
 
     public static void main(String args[]) 
@@ -199,7 +197,7 @@ public class FrameMenu extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblImagemCentro;
     private javax.swing.JMenuItem menuCadastro;
     private javax.swing.JMenu menuCadastros;
     private javax.swing.JMenuItem menuEstadios;
