@@ -1,5 +1,6 @@
 package br.estacio.prii.copa.dao;
 
+import br.estacio.prii.copa.entidade.SessaoUsuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,7 +41,9 @@ public class UsuarioDAO
     
     public static boolean autenticar(Usuario usuarioConsulta)
     {
-        String sql = "SELECT * FROM usuario WHERE login = ? AND senha = ?";
+        
+        String  sql     = "SELECT * FROM usuario WHERE login = ? AND senha = ?";
+        Usuario usuario = new Usuario();        
         
         try(PreparedStatement stmt = connection.prepareStatement(sql)) {
             
@@ -49,7 +52,19 @@ public class UsuarioDAO
             
             ResultSet resultado = stmt.executeQuery();
             
-            if(resultado.next()) {  
+            if(resultado.next()) {
+                usuario.setNome(resultado. getString("nome"));
+                usuario.setLogin(resultado.getString("login"));
+                usuario.setSenha(resultado.getString("senha"));
+                usuario.setEmail(resultado.getString("email"));
+                usuario.setCelular(resultado.getString("celular"));
+                if(resultado.getInt("admin") == 1){
+                    usuario.setAdmin(true);
+                }else{
+                    usuario.setAdmin(false);
+                }
+                usuario.setObs(resultado.getString("obs"));
+                SessaoUsuario.setUsuario(usuario);
                 JOptionPane.showMessageDialog(null, "Login efetuado com sucesso.", "SEJA BEM-VINDO", JOptionPane.QUESTION_MESSAGE);
                 return true;
             } else {
