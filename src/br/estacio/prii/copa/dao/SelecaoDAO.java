@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import br.estacio.prii.copa.entidade.Selecao;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class SelecaoDAO
 {
@@ -34,6 +36,28 @@ public class SelecaoDAO
             return false;
         }
         
+    }
+    
+    public static ArrayList<String> fillComboBox()
+    {
+        
+        String sql = "SELECT * FROM selecao";
+        ArrayList<String> itens = new ArrayList();
+        
+        try(PreparedStatement stmt = connection.prepareStatement(sql)){
+            
+            ResultSet resultado = stmt.executeQuery();
+            
+            while(resultado.next()){
+                itens.add(resultado.getString("nome"));
+            }
+            
+        }catch(SQLException e){
+            e.getMessage();
+        }
+        
+        return itens;
+       
     }
     
 }
