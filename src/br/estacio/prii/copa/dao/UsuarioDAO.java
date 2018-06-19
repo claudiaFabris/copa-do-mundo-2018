@@ -54,8 +54,8 @@ public class UsuarioDAO
             
             if(resultado.next()) {
                 usuario.setNome(resultado. getString("nome"));
-                usuario.setLogin(resultado.getString("login"));
-                usuario.setSenha(resultado.getString("senha"));
+//                usuario.setLogin(resultado.getString("login"));
+//                usuario.setSenha(resultado.getString("senha"));
                 usuario.setEmail(resultado.getString("email"));
                 usuario.setCelular(resultado.getString("celular"));
                 if(resultado.getInt("admin") == 1){
@@ -73,6 +73,7 @@ public class UsuarioDAO
             }
         } catch(SQLException e) {
             e.getMessage();
+            JOptionPane.showMessageDialog(null, "Houve um erro ao acessar banco de dados.", "Banco de Dados", JOptionPane.ERROR_MESSAGE);
         }
         
         return false;

@@ -9,7 +9,7 @@ public enum Fase
     SEMI("Semi-Final"),
     FINAL("Final");
 
-    private final String nome;
+    private String nome;
     
     private Fase(String nome)
     {
