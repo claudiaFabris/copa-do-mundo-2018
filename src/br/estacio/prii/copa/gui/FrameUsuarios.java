@@ -397,6 +397,8 @@ public class FrameUsuarios extends javax.swing.JFrame {
         pssSenha.setText("");
         pssCSenha.setText("");
         cbAdminstrador.setSelected(false);
+        
+        dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnCadastarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastarActionPerformed

@@ -69,6 +69,11 @@ public class FrameMenu extends javax.swing.JFrame
         menuJogos.setBackground(new java.awt.Color(153, 0, 0));
         menuJogos.setForeground(new java.awt.Color(255, 255, 255));
         menuJogos.setText("Jogos da Copa");
+        menuJogos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuJogosActionPerformed(evt);
+            }
+        });
         menuCadastros.add(menuJogos);
 
         menuPrincipal.add(menuCadastros);
@@ -190,6 +195,10 @@ public class FrameMenu extends javax.swing.JFrame
     private void menuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroActionPerformed
         new FrameUsuarios().setVisible(true);
     }//GEN-LAST:event_menuCadastroActionPerformed
+
+    private void menuJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuJogosActionPerformed
+        new FrameJogo().setVisible(true);
+    }//GEN-LAST:event_menuJogosActionPerformed
 
     public static void main(String args[]) 
     {

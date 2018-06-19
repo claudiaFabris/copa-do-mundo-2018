@@ -66,6 +66,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Jogos da Copa"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuJogosActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
