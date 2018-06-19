@@ -249,7 +249,7 @@ public class FrameSelecao extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Seleção cadastrada com sucesso.", "Cadastro seleção", JOptionPane.QUESTION_MESSAGE);
                 this.dispose();
             }else{
-                JOptionPane.showMessageDialog(null, "Houve um erro ao tentar cadastra a seleção \nVerifique os dados.", "SENHA INCORRETA", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Houve um erro ao tentar cadastra a seleção \nVerifique os dados.", "Erro cadastro", JOptionPane.WARNING_MESSAGE);
             }
             
             
