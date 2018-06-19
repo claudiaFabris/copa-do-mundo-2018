@@ -1,14 +1,10 @@
 package br.estacio.prii.copa.gui;
 
-import br.estacio.prii.copa.entidade.SessaoUsuario;
-import br.estacio.prii.copa.entidade.Usuario;
 import javax.swing.JOptionPane;
 
 
 public class FrameMenu extends javax.swing.JFrame 
 {
-    
-    public Usuario usuario = SessaoUsuario.getUsuario();
     
     public FrameMenu() 
     {
