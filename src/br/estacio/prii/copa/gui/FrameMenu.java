@@ -90,6 +90,7 @@ public class FrameMenu extends javax.swing.JFrame
         menuCadastros.setForeground(new java.awt.Color(255, 255, 255));
         menuCadastros.setText("Cadastros");
 
+        menuSelecoes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuSelecoes.setBackground(new java.awt.Color(153, 0, 0));
         menuSelecoes.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuSelecoes.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,6 +103,7 @@ public class FrameMenu extends javax.swing.JFrame
         });
         menuCadastros.add(menuSelecoes);
 
+        menuEstadios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuEstadios.setBackground(new java.awt.Color(153, 0, 0));
         menuEstadios.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuEstadios.setForeground(new java.awt.Color(255, 255, 255));
@@ -114,6 +116,7 @@ public class FrameMenu extends javax.swing.JFrame
         });
         menuCadastros.add(menuEstadios);
 
+        menuJogos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuJogos.setBackground(new java.awt.Color(153, 0, 0));
         menuJogos.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuJogos.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,10 +134,11 @@ public class FrameMenu extends javax.swing.JFrame
         menuTabelas.setForeground(new java.awt.Color(255, 255, 255));
         menuTabelas.setText("Tabelas de Jogos");
 
-        menuTabelaCompleta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        menuTabelaCompleta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuTabelaCompleta.setBackground(new java.awt.Color(153, 0, 0));
         menuTabelaCompleta.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuTabelaCompleta.setForeground(new java.awt.Color(255, 255, 255));
+        menuTabelaCompleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeTabelaMenu.png"))); // NOI18N
         menuTabelaCompleta.setText("Completa");
         menuTabelaCompleta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,10 +147,11 @@ public class FrameMenu extends javax.swing.JFrame
         });
         menuTabelas.add(menuTabelaCompleta);
 
-        menuTabelaDiaria.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        menuTabelaDiaria.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuTabelaDiaria.setBackground(new java.awt.Color(153, 0, 0));
         menuTabelaDiaria.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuTabelaDiaria.setForeground(new java.awt.Color(255, 255, 255));
+        menuTabelaDiaria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeTabelaMenu.png"))); // NOI18N
         menuTabelaDiaria.setText("Diária");
         menuTabelaDiaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,10 +160,11 @@ public class FrameMenu extends javax.swing.JFrame
         });
         menuTabelas.add(menuTabelaDiaria);
 
-        menuTabelaFases.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_MASK));
+        menuTabelaFases.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuTabelaFases.setBackground(new java.awt.Color(153, 0, 0));
         menuTabelaFases.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuTabelaFases.setForeground(new java.awt.Color(255, 255, 255));
+        menuTabelaFases.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeTabelaMenu.png"))); // NOI18N
         menuTabelaFases.setText("Fases");
         menuTabelaFases.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,10 +173,11 @@ public class FrameMenu extends javax.swing.JFrame
         });
         menuTabelas.add(menuTabelaFases);
 
-        menuTabelaGrupos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.SHIFT_MASK));
+        menuTabelaGrupos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuTabelaGrupos.setBackground(new java.awt.Color(153, 0, 0));
         menuTabelaGrupos.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuTabelaGrupos.setForeground(new java.awt.Color(255, 255, 255));
+        menuTabelaGrupos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeTabelaMenu.png"))); // NOI18N
         menuTabelaGrupos.setText("Grupos");
         menuTabelaGrupos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +191,7 @@ public class FrameMenu extends javax.swing.JFrame
         menuSistema.setForeground(new java.awt.Color(255, 255, 255));
         menuSistema.setText("Sistema");
 
-        menuCadastro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        menuCadastro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuCadastro.setBackground(new java.awt.Color(153, 0, 0));
         menuCadastro.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuCadastro.setForeground(new java.awt.Color(255, 255, 255));
@@ -197,10 +204,11 @@ public class FrameMenu extends javax.swing.JFrame
         });
         menuSistema.add(menuCadastro);
 
-        menuLogoff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_MASK));
+        menuLogoff.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
         menuLogoff.setBackground(new java.awt.Color(153, 0, 0));
         menuLogoff.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuLogoff.setForeground(new java.awt.Color(255, 255, 255));
+        menuLogoff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeLogoff.png"))); // NOI18N
         menuLogoff.setText("Logoff do Usuário");
         menuLogoff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,6 +221,7 @@ public class FrameMenu extends javax.swing.JFrame
         menuSobre.setBackground(new java.awt.Color(153, 0, 0));
         menuSobre.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuSobre.setForeground(new java.awt.Color(255, 255, 255));
+        menuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeSobre.png"))); // NOI18N
         menuSobre.setText("Sobre o Sistema");
         menuSobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,6 +234,7 @@ public class FrameMenu extends javax.swing.JFrame
         menuSair.setBackground(new java.awt.Color(153, 0, 0));
         menuSair.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuSair.setForeground(new java.awt.Color(255, 255, 255));
+        menuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeSairMenu.png"))); // NOI18N
         menuSair.setText("Sair - Finalizar");
         menuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
