@@ -10,6 +10,39 @@ public class FrameTabelaDiaria extends javax.swing.JFrame {
     public FrameTabelaDiaria() {
         model = new DefaultListModel();
         initComponents();
+        
+        cbDataSelecionada.addItem("14/06/2018");
+        cbDataSelecionada.addItem("15/06/2018");
+        cbDataSelecionada.addItem("16/06/2018");
+        cbDataSelecionada.addItem("17/06/2018");
+        cbDataSelecionada.addItem("18/06/2018");
+        cbDataSelecionada.addItem("19/06/2018");
+        cbDataSelecionada.addItem("20/06/2018");
+        cbDataSelecionada.addItem("21/06/2018");
+        cbDataSelecionada.addItem("22/06/2018");
+        cbDataSelecionada.addItem("23/06/2018");
+        cbDataSelecionada.addItem("24/06/2018");
+        cbDataSelecionada.addItem("25/06/2018");
+        cbDataSelecionada.addItem("26/06/2018");
+        cbDataSelecionada.addItem("27/06/2018");
+        cbDataSelecionada.addItem("28/06/2018");
+        cbDataSelecionada.addItem("29/06/2018");
+        cbDataSelecionada.addItem("30/06/2018");
+        cbDataSelecionada.addItem("01/07/2018");
+        cbDataSelecionada.addItem("02/07/2018");
+        cbDataSelecionada.addItem("03/07/2018");
+        cbDataSelecionada.addItem("04/07/2018");
+        cbDataSelecionada.addItem("05/07/2018");
+        cbDataSelecionada.addItem("06/07/2018");
+        cbDataSelecionada.addItem("07/07/2018");
+        cbDataSelecionada.addItem("08/07/2018");
+        cbDataSelecionada.addItem("09/07/2018");
+        cbDataSelecionada.addItem("10/07/2018");
+        cbDataSelecionada.addItem("11/07/2018");
+        cbDataSelecionada.addItem("12/07/2018");
+        cbDataSelecionada.addItem("13/07/2018");
+        cbDataSelecionada.addItem("14/07/2018");
+        cbDataSelecionada.addItem("15/07/2018");
     }
 
     @SuppressWarnings("unchecked")
@@ -39,7 +72,7 @@ public class FrameTabelaDiaria extends javax.swing.JFrame {
         lblData.setText("Data:");
 
         cbDataSelecionada.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
-        cbDataSelecionada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "17/06/2018" }));
+        cbDataSelecionada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar" }));
         cbDataSelecionada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbDataSelecionadaActionPerformed(evt);
@@ -165,6 +198,10 @@ public class FrameTabelaDiaria extends javax.swing.JFrame {
         listaJogosDiarios.setModel(model);
         
         ArrayList<String> jogos = JogoDAO.getJogosData((String) cbDataSelecionada.getSelectedItem());
+        
+        for(String jogo : jogos){
+            System.out.println(jogo);
+        }
         
         jogos.forEach(FrameTabelaDiaria.this.model::addElement);
         

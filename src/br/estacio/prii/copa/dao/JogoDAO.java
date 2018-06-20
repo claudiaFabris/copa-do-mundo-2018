@@ -51,7 +51,7 @@ public class JogoDAO {
             while(resultado.next()){
                 String str = resultado.getString("selecaoa") + " " + resultado.getInt("placara") + " X " +
                              resultado.getInt("placarb")     + " " + resultado.getString("selecaob")     +
-                             " Data e Hora "                 + resultado.getString("datahora")           +
+                             " Data e Hora "                 + resultado.getString("data")           +
                              " " + resultado.getString("hora") +
                              " Fase "                        + resultado.getString("fase");
                 if(resultado.getString("fase").equals("GRUPOS")){
@@ -82,7 +82,7 @@ public class JogoDAO {
             while(resultado.next()){
                 String str = resultado.getString("selecaoa") + " " + resultado.getInt("placara") + " X " +
                              resultado.getInt("placarb")     + " " + resultado.getString("selecaob")     +
-                             " Data e Hora "                 + resultado.getString("datahora")           +
+                             " Data e Hora "                 + resultado.getString("data")           +
                              " " + resultado.getString("hora") +
                              " Fase "                        + resultado.getString("fase");
                 if(resultado.getString("fase").equals("GRUPOS")){
@@ -113,9 +113,10 @@ public class JogoDAO {
             while(resultado.next()){
                 String str = resultado.getString("selecaoa") + " " + resultado.getInt("placara") + " X " +
                              resultado.getInt("placarb")     + " " + resultado.getString("selecaob")     +
-                             " Data e Hora "                 + resultado.getString("datahora")           +
+                             " Data e Hora "                 + resultado.getString("data")               +
                              " " + resultado.getString("hora") +
                              " Fase "                        + resultado.getString("fase");
+                System.out.println(str);
                 if(resultado.getString("fase").equals("GRUPOS")){
                     str += " Grupo " + resultado.getString("grupo");
                 }
