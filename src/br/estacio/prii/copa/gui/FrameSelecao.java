@@ -33,8 +33,10 @@ public class FrameSelecao extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Seleção");
+        setUndecorated(true);
 
         pnlSelecao.setBackground(new java.awt.Color(255, 255, 255));
+        pnlSelecao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblTitulo.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
         lblTitulo.setText("Cadastro de Seleção");

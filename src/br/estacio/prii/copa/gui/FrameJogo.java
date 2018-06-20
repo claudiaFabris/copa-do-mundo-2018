@@ -53,8 +53,10 @@ public class FrameJogo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Jogos");
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeJogos.png"))); // NOI18N
 

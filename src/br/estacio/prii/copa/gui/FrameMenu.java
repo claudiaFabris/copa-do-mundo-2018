@@ -136,6 +136,11 @@ public class FrameMenu extends javax.swing.JFrame
         menuTabelaCompleta.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuTabelaCompleta.setForeground(new java.awt.Color(255, 255, 255));
         menuTabelaCompleta.setText("Completa");
+        menuTabelaCompleta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTabelaCompletaActionPerformed(evt);
+            }
+        });
         menuTabelas.add(menuTabelaCompleta);
 
         menuTabelaDiaria.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
@@ -143,6 +148,11 @@ public class FrameMenu extends javax.swing.JFrame
         menuTabelaDiaria.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuTabelaDiaria.setForeground(new java.awt.Color(255, 255, 255));
         menuTabelaDiaria.setText("Diária");
+        menuTabelaDiaria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTabelaDiariaActionPerformed(evt);
+            }
+        });
         menuTabelas.add(menuTabelaDiaria);
 
         menuTabelaFases.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_MASK));
@@ -150,6 +160,11 @@ public class FrameMenu extends javax.swing.JFrame
         menuTabelaFases.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuTabelaFases.setForeground(new java.awt.Color(255, 255, 255));
         menuTabelaFases.setText("Fases");
+        menuTabelaFases.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTabelaFasesActionPerformed(evt);
+            }
+        });
         menuTabelas.add(menuTabelaFases);
 
         menuTabelaGrupos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.SHIFT_MASK));
@@ -157,6 +172,11 @@ public class FrameMenu extends javax.swing.JFrame
         menuTabelaGrupos.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         menuTabelaGrupos.setForeground(new java.awt.Color(255, 255, 255));
         menuTabelaGrupos.setText("Grupos");
+        menuTabelaGrupos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTabelaGruposActionPerformed(evt);
+            }
+        });
         menuTabelas.add(menuTabelaGrupos);
 
         menuPrincipal.add(menuTabelas);
@@ -252,6 +272,22 @@ public class FrameMenu extends javax.swing.JFrame
     private void menuJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuJogosActionPerformed
         new FrameJogo().setVisible(true);
     }//GEN-LAST:event_menuJogosActionPerformed
+
+    private void menuTabelaCompletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTabelaCompletaActionPerformed
+        new FrameTabelaCompleta().setVisible(true);
+    }//GEN-LAST:event_menuTabelaCompletaActionPerformed
+
+    private void menuTabelaDiariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTabelaDiariaActionPerformed
+        new FrameTabelaDiaria().setVisible(true);
+    }//GEN-LAST:event_menuTabelaDiariaActionPerformed
+
+    private void menuTabelaFasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTabelaFasesActionPerformed
+        new FrameTabelaFases().setVisible(true);
+    }//GEN-LAST:event_menuTabelaFasesActionPerformed
+
+    private void menuTabelaGruposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTabelaGruposActionPerformed
+        new FrameTabelaGrupos().setVisible(true);
+    }//GEN-LAST:event_menuTabelaGruposActionPerformed
 
     public static void main(String args[]) 
     {

@@ -28,8 +28,10 @@ public class FrameSobre extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sobre");
         setBackground(new java.awt.Color(255, 255, 255));
+        setUndecorated(true);
 
         pnlSobre.setBackground(new java.awt.Color(255, 255, 255));
+        pnlSobre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/copa-do-mundo-russia-2018-logo.png"))); // NOI18N
 
@@ -146,12 +148,14 @@ public class FrameSobre extends javax.swing.JFrame {
         pnlSobreLayout.setVerticalGroup(
             pnlSobreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSobreLayout.createSequentialGroup()
-                .addComponent(lblImagem)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSobreLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(plnTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGroup(pnlSobreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSobreLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(plnTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlSobreLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lblImagem)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

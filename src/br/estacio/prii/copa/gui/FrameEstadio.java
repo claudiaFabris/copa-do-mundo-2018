@@ -45,8 +45,10 @@ public class FrameEstadio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Estádios");
+        setUndecorated(true);
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
+        pnlPrincipal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblTitulo.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
         lblTitulo.setText("Cadastro de Estádios");
@@ -105,8 +107,8 @@ public class FrameEstadio extends javax.swing.JFrame {
                     .addGroup(pnlPrincipalLayout.createSequentialGroup()
                         .addComponent(lblCapacidade)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCapacidade, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
+                        .addComponent(txtCapacidade, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(btnCadastrar)
                         .addGap(18, 18, 18)
                         .addComponent(btnVoltar))
