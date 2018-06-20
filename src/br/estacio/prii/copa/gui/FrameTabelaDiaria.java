@@ -1,9 +1,14 @@
 package br.estacio.prii.copa.gui;
 
+import br.estacio.prii.copa.dao.JogoDAO;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
 
 public class FrameTabelaDiaria extends javax.swing.JFrame {
 
     public FrameTabelaDiaria() {
+        model = new DefaultListModel();
         initComponents();
     }
 
@@ -33,19 +38,26 @@ public class FrameTabelaDiaria extends javax.swing.JFrame {
         lblData.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         lblData.setText("Data:");
 
-        cbDataSelecionada.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        cbDataSelecionada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbDataSelecionada.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
+        cbDataSelecionada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "17/06/2018" }));
+        cbDataSelecionada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbDataSelecionadaActionPerformed(evt);
+            }
+        });
 
         btnResultado.setBackground(new java.awt.Color(0, 102, 153));
         btnResultado.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         btnResultado.setForeground(new java.awt.Color(255, 255, 255));
         btnResultado.setText("Pesquisar");
-
-        listaJogosDiarios.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        btnResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResultadoActionPerformed(evt);
+            }
         });
+
+        listaJogosDiarios.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
+        listaJogosDiarios.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         jScrollPane1.setViewportView(listaJogosDiarios);
 
         btnNovoJogo.setBackground(new java.awt.Color(0, 102, 153));
@@ -53,6 +65,11 @@ public class FrameTabelaDiaria extends javax.swing.JFrame {
         btnNovoJogo.setForeground(new java.awt.Color(255, 255, 255));
         btnNovoJogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeJogosBotao.png"))); // NOI18N
         btnNovoJogo.setText(" Novo Jogo");
+        btnNovoJogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoJogoActionPerformed(evt);
+            }
+        });
 
         btnVoltar.setBackground(new java.awt.Color(0, 102, 153));
         btnVoltar.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
@@ -82,14 +99,14 @@ public class FrameTabelaDiaria extends javax.swing.JFrame {
                         .addGap(95, 95, 95)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(153, 153, 153)
                         .addComponent(btnNovoJogo)
                         .addGap(65, 65, 65)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,9 +118,9 @@ public class FrameTabelaDiaria extends javax.swing.JFrame {
                     .addComponent(lblData)
                     .addComponent(cbDataSelecionada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnResultado))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNovoJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVoltar))
@@ -133,6 +150,26 @@ public class FrameTabelaDiaria extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
+    private void cbDataSelecionadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDataSelecionadaActionPerformed
+        
+    }//GEN-LAST:event_cbDataSelecionadaActionPerformed
+
+    private void btnNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoJogoActionPerformed
+        new FrameJogo().setVisible(true);
+    }//GEN-LAST:event_btnNovoJogoActionPerformed
+
+    private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
+        
+        model.clear();
+        
+        listaJogosDiarios.setModel(model);
+        
+        ArrayList<String> jogos = JogoDAO.getJogosData((String) cbDataSelecionada.getSelectedItem());
+        
+        jogos.forEach(FrameTabelaDiaria.this.model::addElement);
+        
+    }//GEN-LAST:event_btnResultadoActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -152,4 +189,5 @@ public class FrameTabelaDiaria extends javax.swing.JFrame {
     private javax.swing.JLabel lblData;
     private javax.swing.JList<String> listaJogosDiarios;
     // End of variables declaration//GEN-END:variables
+    private final DefaultListModel model;
 }

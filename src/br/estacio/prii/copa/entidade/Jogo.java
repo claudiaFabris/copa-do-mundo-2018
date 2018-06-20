@@ -11,7 +11,8 @@ public class Jogo
     private Integer placarA;
     private Integer placarB;
     private String local;
-    private String datahora;
+    private String data;
+    private String hora;
     private String fase;
     private String grupo;
 
@@ -30,7 +31,8 @@ public class Jogo
         this.placarA  = placarA;
         this.placarB  = placarB;
         this.local    = local;
-        this.datahora = datahora;
+        this.data     = data;
+        this.hora     = hora;
         this.fase     = fase;
     }
 
@@ -94,14 +96,24 @@ public class Jogo
         this.local = local;
     }
 
-    public String getDatahora() 
+    public String getData() 
     {
-        return datahora;
+        return data;
     }
 
-    public void setDatahora(String datahora) 
+    public void setData(String data) 
     {
-        this.datahora = datahora;
+        this.data = data;
+    }
+
+    public String getHora() 
+    {
+        return hora;
+    }
+
+    public void setHora(String hora) 
+    {
+        this.hora = hora;
     }
 
     public String getFase() 

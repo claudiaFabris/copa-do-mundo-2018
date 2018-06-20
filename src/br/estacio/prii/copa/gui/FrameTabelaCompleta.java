@@ -1,10 +1,24 @@
 package br.estacio.prii.copa.gui;
 
+import br.estacio.prii.copa.dao.JogoDAO;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
 
 public class FrameTabelaCompleta extends javax.swing.JFrame {
 
     public FrameTabelaCompleta() {
+        model = new DefaultListModel();
         initComponents();
+        
+        ArrayList jogos        = JogoDAO.getJogos();
+        
+        model.clear();
+        
+        listaJogos.setModel(model);
+        
+        jogos.forEach(FrameTabelaCompleta.this.model::addElement);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -25,23 +39,30 @@ public class FrameTabelaCompleta extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
         lblTitulo.setText("Lista de Jogos - Copa do Mundo 2018");
 
-        listaJogos.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        listaJogos.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
+        listaJogos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         jScrollPane1.setViewportView(listaJogos);
 
         btnNovoJogo.setBackground(new java.awt.Color(0, 102, 153));
         btnNovoJogo.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         btnNovoJogo.setForeground(new java.awt.Color(255, 255, 255));
         btnNovoJogo.setText("Novo Jogo");
+        btnNovoJogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoJogoActionPerformed(evt);
+            }
+        });
 
         btnVoltar.setBackground(new java.awt.Color(0, 102, 153));
         btnVoltar.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeVoltar.png"))); // NOI18N
         btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlPrincipalLayout = new javax.swing.GroupLayout(pnlPrincipal);
         pnlPrincipal.setLayout(pnlPrincipalLayout);
@@ -88,7 +109,16 @@ public class FrameTabelaCompleta extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoJogoActionPerformed
+        new FrameJogo().setVisible(true);
+    }//GEN-LAST:event_btnNovoJogoActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -106,4 +136,5 @@ public class FrameTabelaCompleta extends javax.swing.JFrame {
     private javax.swing.JList<String> listaJogos;
     private javax.swing.JPanel pnlPrincipal;
     // End of variables declaration//GEN-END:variables
+    private final DefaultListModel model;
 }

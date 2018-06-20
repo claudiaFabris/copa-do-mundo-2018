@@ -60,4 +60,29 @@ public class SelecaoDAO
        
     }
     
+    public static ArrayList<String> getSelecoesGrupo(String grupo){
+        
+        String sql = "SELECT * FROM selecao WHERE grupo = ?";
+        ArrayList<String> selecoes = new ArrayList();
+        
+        try(PreparedStatement stmt = connection.prepareStatement(sql)) {
+            
+            stmt.setString(1, grupo);
+            
+            ResultSet resultado = stmt.executeQuery();
+            
+            while(resultado.next()){
+                String str = resultado.getString("nome") + " " + resultado.getString("tecnico") + 
+                             " Grupo " + resultado.getString("grupo");
+                selecoes.add(str);
+            }
+            
+        } catch(SQLException e) {
+            e.getMessage();            
+        }
+        
+        return selecoes;
+        
+    }
+    
 }
