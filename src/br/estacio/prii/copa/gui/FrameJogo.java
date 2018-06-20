@@ -262,13 +262,15 @@ public class FrameJogo extends javax.swing.JFrame {
         
         Jogo jogoSalvar = new Jogo();
         
-        String selecaoA = (String)jcbSelecaoA.getSelectedItem();
-        String selecaoB = (String)jcbSelecaoB.getSelectedItem();
-        String grupo    = null;
-        String dataHora = txtDataHora.getText();
-        String fase     = (String)jcbFase.getSelectedItem();
-        int placarA     = 0;
-        int placarB     = 0;
+        String selecaoA   = (String)jcbSelecaoA.getSelectedItem();
+        String selecaoB   = (String)jcbSelecaoB.getSelectedItem();
+        String grupo      = null;
+        String dataHora[] = txtDataHora.getText().split(" ");
+        String data       = dataHora[0];
+        String hora       = dataHora[1];
+        String fase       = (String)jcbFase.getSelectedItem();
+        int placarA       = 0;
+        int placarB       = 0;
         
         if(!txtGrupo.getText().equals("")){
             grupo = txtGrupo.getText();
@@ -285,7 +287,8 @@ public class FrameJogo extends javax.swing.JFrame {
         jogoSalvar.setPlacarA(placarA);
         jogoSalvar.setPlacarB(placarB);
         jogoSalvar.setGrupo(grupo);
-        jogoSalvar.setDatahora(dataHora);
+        jogoSalvar.setData(data);
+        jogoSalvar.setHora(hora);
         jogoSalvar.setFase(fase);
         
         if(JogoDAO.cadastrar(jogoSalvar)){

@@ -54,8 +54,6 @@ public class UsuarioDAO
             
             if(resultado.next()) {
                 usuario.setNome(resultado. getString("nome"));
-//                usuario.setLogin(resultado.getString("login"));
-//                usuario.setSenha(resultado.getString("senha"));
                 usuario.setEmail(resultado.getString("email"));
                 usuario.setCelular(resultado.getString("celular"));
                 if(resultado.getInt("admin") == 1){
