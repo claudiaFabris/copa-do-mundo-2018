@@ -60,8 +60,8 @@ public class FrameTabelaGrupos extends javax.swing.JFrame {
         btnNovoJogo.setBackground(new java.awt.Color(0, 102, 153));
         btnNovoJogo.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         btnNovoJogo.setForeground(new java.awt.Color(255, 255, 255));
-        btnNovoJogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeJogosBotao.png"))); // NOI18N
-        btnNovoJogo.setText("Novo Seleção");
+        btnNovoJogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconeSelecao.png"))); // NOI18N
+        btnNovoJogo.setText("Nova Seleção");
         btnNovoJogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoJogoActionPerformed(evt);
@@ -100,10 +100,10 @@ public class FrameTabelaGrupos extends javax.swing.JFrame {
                                 .addGap(8, 8, 8)
                                 .addComponent(lblTitulo))))
                     .addGroup(pnlPrincipalLayout.createSequentialGroup()
-                        .addGap(138, 138, 138)
+                        .addGap(89, 89, 89)
                         .addComponent(btnNovoJogo)
-                        .addGap(47, 47, 47)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         pnlPrincipalLayout.setVerticalGroup(
@@ -120,7 +120,7 @@ public class FrameTabelaGrupos extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVoltar)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNovoJogo))
                 .addGap(22, 22, 22))
         );
@@ -148,6 +148,7 @@ public class FrameTabelaGrupos extends javax.swing.JFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         
+        model.clear();
         
         ArrayList<String> selecoes = SelecaoDAO.getSelecoesGrupo((String) jcbGrupo.getSelectedItem());
         
